@@ -10,14 +10,14 @@ class FullPost extends Component {
 
   getPost = async () => {
     const response = await axios
-      .get(`/posts/${this.props.id}`);
+      .get(`/posts/${this.props.match.params.id}`);
     this.setState({loadedPost: response.data});
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.props.id) {
+  componentDidMount() {
+    if (this.props.match.params.id) {
       if (!this.state.loadedPost ||
-        (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)) {
+        (this.state.loadedPost && this.state.loadedPost.id !== this.props.match.params.id)) {
         this.getPost();
       }
     }
