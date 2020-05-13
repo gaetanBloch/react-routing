@@ -15,8 +15,10 @@ class NewPost extends Component {
   postData = async (post) => {
     const response = await axios.post('/posts', post);
     console.log(response);
-    this.setState({submitted: true});
-  }
+    // this.setState({submitted: true});
+    // this.props.history.replace('/posts');
+    this.props.history.push('/posts');
+  };
 
   postDataHandler = () => {
     const post = {
