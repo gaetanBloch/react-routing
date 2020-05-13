@@ -12,6 +12,11 @@ class NewPost extends Component {
     submitted: false
   }
 
+  componentDidMount() {
+    // If not authenticated =>
+    // this.props.history.replace('/posts');
+  }
+
   postData = async (post) => {
     const response = await axios.post('/posts', post);
     console.log(response);
