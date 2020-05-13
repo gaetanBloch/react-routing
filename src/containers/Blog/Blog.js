@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import axios from 'axios'
 import axios from '../../axios'
 
 import Post from '../../components/Post/Post';
@@ -31,21 +30,6 @@ class Blog extends Component {
   }
 
   componentDidMount() {
-    // axios.get('https://jsonplaceholder.typicode.com/posts')
-    //   .then((response) => {
-    //     const posts = response.data.slice(0, 4);
-    //     const updatedPosts = posts.map(post => {
-    //       return {
-    //         ...post,
-    //         author: 'Gaëtan'
-    //       }
-    //     })
-    //     this.setState({posts: updatedPosts})
-    //   })
-    //   .catch(error => {
-    //     this.setState({error: true});
-    //   })
-
     this.getPosts();
   }
 
@@ -67,6 +51,14 @@ class Blog extends Component {
 
     return (
       <div>
+        <header className="Blog">
+          <nav>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/new-post">New Post</a></li>
+            </ul>
+          </nav>
+        </header>
         <section className="Posts">
           {posts}
         </section>
